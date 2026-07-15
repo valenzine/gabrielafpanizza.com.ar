@@ -1,0 +1,33 @@
+---
+import type { Book } from '../lib/books';
+import BookCover from './BookCover.astro';
+import Arrow from './Arrow.astro';
+
+interface Props { book: Book; }
+const { book } = Astro.props;
+---
+
+<article class="book-card">
+  <a class="cover-link" href={`/libros/${book.slug}/`} aria-label={`Ver ${book.title}`}>
+    <BookCover book={book} compact />
+  </a>
+  <div class="book-info">
+    <p class="book-year">{book.year} · {book.role}</p>
+    <h3><a href={`/libros/${book.slug}/`}>{book.title}</a></h3>
+    <p>{book.publisher}</p>
+    <a class="details" href={`/libros/${book.slug}/`}>Ver libro <Arrow /></a>
+  </div>
+</article>
+
+<style>
+  .book-card { display: grid; gap: 1.25rem; }
+  .cover-link { display: block; text-decoration: none; transition: transform 180ms ease; }
+  .cover-link:hover { transform: translateY(-5px); }
+  .book-info { display: grid; gap: 0.2rem; }
+  .book-info p { margin: 0; color: var(--ink-soft); font-size: 0.86rem; }
+  .book-info h3 { margin-block: 0.25rem; font-size: clamp(1.4rem, 2.2vw, 1.9rem); line-height: 1.08; }
+  .book-info h3 a { text-decoration: none; }
+  .book-year { text-transform: uppercase; letter-spacing: 0.08em; }
+  .details { display: inline-flex; align-items: center; gap: 0.45rem; width: fit-content; margin-top: 0.6rem; font-size: 0.86rem; }
+  .details :global(svg) { width: 0.9rem; }
+</style>

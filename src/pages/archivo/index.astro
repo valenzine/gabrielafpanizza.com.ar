@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('articles')).sort((a, b) => a.data.order - b.data.order);
+const posts = articles.filter((article) => article.data.available);
+const earlyArticles = articles.filter((article) => !article.data.available);
+---
+
+<BaseLayout title="Archivo" description="Artículos, ponencias y textos de Gabriela Fernández Panizza sobre educación, juego, enseñanza y formación docente.">
+  <header class="page-hero container">
+    <p class="eyebrow">Textos y recursos</p>
+    <h1>Textos para enseñar y aprender.</h1>
+    <p class="lead">Artículos, ponencias y reflexiones sobre la práctica docente, el juego, la autoridad pedagógica y la experiencia de enseñar.</p>
+  </header>
+
+  <section class="archive-section">
+    <div class="container">
+      <div class="section-rule"><div><p class="eyebrow">Artículos, ensayos y proyectos</p><h2>1999–2016</h2></div></div>
+      <ol class="article-list">
+        {posts.map((post) => (
+          <li>
+            <span>{post.data.date.getUTCFullYear()}</span>
+            <div><h3><a href={`/archivo/${post.id}/`}>{post.data.title}</a></h3>{post.data.source && <p>{post.data.source}</p>}</div>
+            <a href={`/archivo/${post.id}/`} aria-label={`Leer ${post.data.title}`}>Leer →</a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  {earlyArticles.length > 0 && <section class="archive-section older">
+    <div class="container">
+      <div class="section-rule"><div><p class="eyebrow">Publicaciones tempranas</p><h2>1999–2000</h2></div></div>
+      <ol class="article-list">
+        {earlyArticles.map((article) => (
+          <li>
+            <span>{article.data.date.getUTCFullYear()}</span>
+            <div><h3>{article.data.title}</h3><p>{article.data.source}</p></div>
+            <span class="historical">Texto publicado</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>}
+</BaseLayout>
+
+<style>
+  .archive-section { padding-block: 3rem clamp(5rem, 10vw, 8rem); }
+  .older { background: var(--cream); }
+  .article-list { margin: 0; padding: 0; list-style: none; }
+  .article-list li { display: grid; grid-template-columns: 90px minmax(0, 1fr) auto; gap: 2rem; align-items: center; padding-block: 1.6rem; border-top: 1px solid var(--line); }
+  .article-list li > span:first-child { color: var(--terracotta); font-family: var(--serif); font-size: 1.3rem; }
+  .article-list h3 { font-size: clamp(1.45rem, 2.6vw, 2.2rem); line-height: 1.1; }
+  .article-list h3 a { text-decoration: none; }
+  .article-list p { margin: 0.25rem 0 0; color: var(--ink-soft); font-size: 0.85rem; }
+  .article-list > li > a, .historical { color: var(--ink-soft); font-size: 0.82rem; white-space: nowrap; }
+  @media (max-width: 680px) {
+    .article-list li { grid-template-columns: 60px 1fr; gap: 0.7rem 1rem; }
+    .article-list > li > a, .historical { grid-column: 2; }
+  }
+</style>

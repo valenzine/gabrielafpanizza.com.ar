@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection, getEntry, render } from 'astro:content';
+
+const page = await getEntry('pages', 'gabriela');
+if (!page) throw new Error('Falta src/content/pages/gabriela.md');
+const { Content } = await render(page);
+const timeline = await Promise.all(
+  (await getCollection('timeline'))
+    .sort((a, b) => a.data.order - b.data.order)
+    .map(async (entry) => ({ entry, Content: (await render(entry)).Content })),
+);
+const projects = (await getCollection('articles'))
+  .filter((entry) => entry.data.project)
+  .sort((a, b) => (a.data.projectOrder ?? 99) - (b.data.projectOrder ?? 99));
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <header class="page-hero container">
+    <p class="eyebrow">{page.data.eyebrow}</p>
+    <h1>{page.data.heading}</h1>
+    <p class="lead">{page.data.lead}</p>
+  </header>
+
+  <section class="bio-section">
+    <div class="container bio-grid">
+      <div class="portrait-mark">
+        <img src="/assets/manzana-portada.png" alt="Ilustración botánica coloreada de flores de manzano" />
+        <span>San Carlos de Bariloche · Patagonia Argentina</span>
+      </div>
+      <div class="bio-copy reading-width">
+        <p class="eyebrow">Una vida en las aulas</p>
+        <Content />
+        <a class="button-link detailed-link" href="/trayectoria/">Ver trayectoria detallada →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section projects-section">
+    <div class="container">
+      <div class="section-rule">
+        <div><p class="eyebrow">Ideas llevadas a la práctica</p><h2>Proyectos y experiencias</h2></div>
+        <a href="/proyectos/">Ver todos →</a>
+      </div>
+      <div class="project-links">
+        {projects.map((project, index) => (
+          <article class:list={{ primary: index === 0 }}>
+            <p class="eyebrow">{project.data.projectLabel} · {project.data.displayDate}</p>
+            <h3><a href={`/archivo/${project.id}/`}>{project.data.title}</a></h3>
+            <p>{project.data.projectSummary}</p>
+            <a class="read-project" href={`/archivo/${project.id}/`}>Leer proyecto →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section timeline-section">
+    <div class="container">
+      <div class="section-rule"><div><p class="eyebrow">Cronología seleccionada</p><h2>Una trayectoria en movimiento</h2></div></div>
+      <ol class="timeline">
+        {timeline.map(({ entry, Content: Milestone }) => (
+          <li id={entry.data.anchor}>
+            <span class="year">{entry.data.year}</span>
+            <h3>{entry.data.title}</h3>
+            <div class="milestone-copy"><Milestone /></div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <div class="container">
+      <blockquote>“{page.data.quote}”</blockquote>
+      <p>{page.data.quoteSource}</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .bio-section { padding-block: clamp(4rem, 9vw, 8rem); background: var(--cream); }
+  .bio-grid { display: grid; grid-template-columns: minmax(250px, 0.65fr) minmax(0, 1.35fr); gap: clamp(3rem, 8vw, 7rem); align-items: start; }
+  .portrait-mark { display: grid; grid-template-rows: 1fr auto; place-items: center; aspect-ratio: 1; padding: 2rem 1.2rem 1.2rem; color: var(--ink); background: var(--paper); }
+  .portrait-mark img { width: 100%; mix-blend-mode: multiply; }
+  .portrait-mark span { justify-self: start; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .bio-copy :global(p:first-of-type) { color: var(--ink); font-family: var(--serif); font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.4; }
+  .bio-copy :global(p) { margin-bottom: 1.5rem; }
+  .detailed-link { margin-top: 1rem; }
+  .projects-section { background: var(--paper); }
+  .project-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .project-links article { display: flex; flex-direction: column; min-height: 300px; padding: clamp(1.5rem, 4vw, 3rem); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .project-links article.primary { grid-column: 1 / -1; min-height: 340px; color: var(--cream); background: var(--moss-dark); }
+  .project-links article.primary .eyebrow, .project-links article.primary > p { color: rgba(250,247,240,0.72); }
+  .project-links h3 { max-width: 20ch; font-size: clamp(2rem, 4vw, 3.6rem); }
+  .project-links h3 a { text-decoration: none; }
+  .project-links article > p:not(.eyebrow) { max-width: 52ch; margin-block: 1.5rem; color: var(--ink-soft); }
+  .read-project { width: fit-content; margin-top: auto; font-size: 0.9rem; }
+  .timeline { margin: 0; padding: 0; list-style: none; }
+  .timeline li { display: grid; grid-template-columns: 150px minmax(200px, 0.65fr) minmax(260px, 1.35fr); gap: 2rem; padding-block: 2rem; border-top: 1px solid var(--line); }
+  .timeline .year { color: var(--terracotta); font-family: var(--serif); font-size: 1.25rem; }
+  .timeline h3 { font-size: 1.75rem; line-height: 1.1; }
+  .milestone-copy :global(p) { max-width: 53ch; margin: 0; color: var(--ink-soft); }
+  .quote-section { padding-block: clamp(5rem, 12vw, 10rem); color: var(--cream); background: var(--terracotta); }
+  blockquote { max-width: 19ch; margin: 0; font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 1; letter-spacing: -0.04em; }
+  .quote-section p { margin-top: 2rem; color: rgba(250,247,240,0.75); }
+  @media (max-width: 760px) {
+    .bio-grid { grid-template-columns: 1fr; }
+    .portrait-mark { max-width: 340px; }
+    .project-links { grid-template-columns: 1fr; }
+    .project-links article.primary { grid-column: auto; }
+    .timeline li { grid-template-columns: 1fr; gap: 0.55rem; }
+  }
+</style>

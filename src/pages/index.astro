@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BookCard from '../components/BookCard.astro';
+import Arrow from '../components/Arrow.astro';
+import { getCollection, getEntry, render } from 'astro:content';
+import { toBook } from '../lib/books';
+
+const home = await getEntry('pages', 'inicio');
+if (!home) throw new Error('Falta src/content/pages/inicio.md');
+const { Content: HomeNote } = await render(home);
+const featuredBooks = (await getCollection('books'))
+  .filter((entry) => entry.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(toBook);
+---
+
+<BaseLayout>
+  <section class="home-hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">{home.data.eyebrow}</p>
+        <h1>{home.data.heading}</h1>
+        <p class="lead">{home.data.lead}</p>
+        <a class="button-link" href="/gabriela/">Conocer su trayectoria <Arrow /></a>
+      </div>
+      <figure class="hero-botanical">
+        <img src="/assets/manzana-portada.png" alt="Ilustración botánica coloreada de flores de manzano" />
+        <figcaption><HomeNote /></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section books-section">
+    <div class="container">
+      <div class="section-rule">
+        <div>
+          <p class="eyebrow">Publicaciones</p>
+          <h2>Obra reciente</h2>
+        </div>
+        <a href="/libros/">Ver todos los libros →</a>
+      </div>
+      <div class="book-grid">
+        {featuredBooks.map((book) => <BookCard book={book} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="audio-section">
+    <div class="container audio-grid">
+      <div class="audio-copy">
+        <p class="eyebrow">Radio Nacional Bariloche · 2018–2019</p>
+        <h2>Las cosas de<br />Mamá Osa</h2>
+        <p class="lead">Una cueva imaginaria llena de cuentos, canciones, juegos y voces de niñas y niños de Bariloche y la Línea Sur.</p>
+        <a class="button-link light" href="/mama-osa/">Entrar a la cueva <Arrow /></a>
+      </div>
+      <div class="wave-wrap" aria-hidden="true">
+        <div class="moon"></div>
+        <div class="wave">
+          {[20,43,78,35,92,54,28,66,88,45,71,30,57,84,41,22,62,95,34,74].map((height) => (
+            <i style={`--height:${height}%`}></i>
+          ))}
+        </div>
+        <p>Programa declarado de interés municipal, educativo, cultural e intercultural.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section themes-section">
+    <div class="container">
+      <div class="section-rule">
+        <div>
+          <p class="eyebrow">Una mirada pedagógica</p>
+          <h2>Tres hilos, una trayectoria</h2>
+        </div>
+        <a href="/proyectos/">Conocer sus proyectos →</a>
+      </div>
+      <div class="theme-grid">
+        <article><span>01</span><h3>El juego</h3><p>Como experiencia, desafío y forma de comprender.</p></article>
+        <article><span>02</span><h3>La palabra</h3><p>Leer, escribir, contar y escuchar otras voces.</p></article>
+        <article><span>03</span><h3>El aprendizaje</h3><p>Autónomo, significativo y abierto a distintas inteligencias.</p></article>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .home-hero { padding-block: clamp(4rem, 9vw, 8rem) clamp(5rem, 11vw, 9rem); }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr); gap: clamp(2rem, 4vw, 4rem); align-items: center; }
+  .hero-copy h1 { max-width: 9ch; }
+  .hero-copy .lead { max-width: 31ch; margin-block: 2rem 2.5rem; }
+  .hero-botanical { justify-self: center; width: min(100%, 520px); margin: 0; text-align: center; }
+  .hero-botanical img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
+  .hero-botanical figcaption { margin-top: 0.75rem; color: var(--ink-soft); font-size: 0.75rem; }
+  .hero-botanical figcaption :global(p) { margin: 0; }
+  .books-section { background: var(--cream); }
+  .book-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 3.5rem); }
+  .audio-section { padding-block: clamp(4rem, 10vw, 8rem); color: var(--cream); background: var(--moss-dark); }
+  .audio-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1.15fr); gap: clamp(3rem, 8vw, 7rem); align-items: center; }
+  .audio-copy .eyebrow, .audio-copy .lead { color: rgba(250,247,240,0.7); }
+  .audio-copy .lead { margin-block: 1.8rem 2.2rem; }
+  .light:hover { color: var(--moss-dark); background: var(--cream); }
+  .wave-wrap { position: relative; display: grid; align-content: end; min-height: 330px; padding-top: 5rem; }
+  .moon { position: absolute; top: 0; right: 7%; width: 130px; aspect-ratio: 1; border: 1px solid rgba(250,247,240,0.45); border-radius: 50%; }
+  .wave { display: flex; align-items: center; gap: 8px; height: 180px; border-bottom: 1px solid rgba(250,247,240,0.25); }
+  .wave i { width: 100%; max-width: 12px; height: var(--height); border-radius: 999px; background: rgba(250,247,240,0.65); }
+  .wave-wrap p { max-width: 46ch; margin: 1rem 0 0; color: rgba(250,247,240,0.65); font-size: 0.78rem; }
+  .theme-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 4vw, 4rem); }
+  .theme-grid article { padding-top: 1.2rem; border-top: 2px solid var(--ink); }
+  .theme-grid span { color: var(--terracotta); font-size: 0.75rem; }
+  .theme-grid h3 { margin-block: 2.5rem 0.7rem; }
+  .theme-grid p { color: var(--ink-soft); }
+  @media (max-width: 760px) {
+    .hero-grid, .audio-grid { grid-template-columns: 1fr; }
+    .hero-botanical { width: min(100%, 360px); }
+    .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .book-grid :global(.book-card:last-child) { display: none; }
+    .theme-grid { grid-template-columns: 1fr; }
+    .theme-grid h3 { margin-top: 1.2rem; }
+    .wave-wrap { min-height: 240px; }
+  }
+  @media (max-width: 460px) {
+    .book-grid { grid-template-columns: 1fr; }
+    .book-grid :global(.book-card:last-child) { display: grid; }
+  }
+</style>

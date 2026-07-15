@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookCover from '../../components/BookCover.astro';
+import Arrow from '../../components/Arrow.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { toBook } from '../../lib/books';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('books');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+interface Props { entry: CollectionEntry<'books'>; }
+const { entry } = Astro.props;
+const book = toBook(entry);
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={book.title} description={book.description} image={book.cover}>
+  <article class="book-detail container">
+    <div class="cover-column"><BookCover book={book} /></div>
+    <div class="book-copy">
+      <a class="back" href="/libros/">← Todos los libros</a>
+      <p class="eyebrow">{book.year} · {book.role}</p>
+      <h1>{book.title}</h1>
+      {book.subtitle && <p class="subtitle">{book.subtitle}</p>}
+      <div class="book-description"><Content /></div>
+
+      <dl>
+        <div><dt>Editorial</dt><dd>{book.publisher}</dd></div>
+        <div><dt>Año</dt><dd>{book.year}</dd></div>
+        {book.isbn && <div><dt>ISBN</dt><dd>{book.isbn}</dd></div>}
+        {book.pages && <div><dt>Extensión</dt><dd>{book.pages} páginas</dd></div>}
+        {book.collaborators && <div><dt>Con</dt><dd>{book.collaborators.join(', ')}</dd></div>}
+      </dl>
+
+      {book.recognition && <aside><p class="eyebrow">Reconocimiento</p><p>{book.recognition}</p></aside>}
+      {book.externalUrl && <a class="button-link" href={book.externalUrl} rel="external">Ver en la editorial <Arrow /></a>}
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .book-detail { display: grid; grid-template-columns: minmax(250px, 0.7fr) minmax(0, 1.3fr); gap: clamp(3rem, 9vw, 8rem); padding-block: clamp(4rem, 9vw, 8rem); align-items: start; }
+  .cover-column { position: sticky; top: 2rem; }
+  .book-copy { padding-top: 0.4rem; }
+  .back { display: inline-block; margin-bottom: clamp(3rem, 7vw, 6rem); color: var(--ink-soft); font-size: 0.85rem; }
+  .book-copy h1 { max-width: 12ch; font-size: clamp(3rem, 7vw, 6rem); }
+  .subtitle { max-width: 34ch; margin-top: 1rem; color: var(--ink-soft); font-family: var(--serif); font-size: 1.55rem; line-height: 1.25; }
+  .book-description { max-width: 35ch; margin-block: 2rem 3rem; font-family: var(--serif); font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.4; }
+  .book-description :global(p) { margin: 0; }
+  dl { margin-block: 0 3rem; border-top: 1px solid var(--line); }
+  dl div { display: grid; grid-template-columns: 120px 1fr; gap: 1rem; padding-block: 0.8rem; border-bottom: 1px solid var(--line); }
+  dt { color: var(--ink-soft); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  dd { margin: 0; }
+  aside { max-width: 42rem; margin-bottom: 2.5rem; padding: 1.5rem; border-left: 4px solid var(--ochre); background: var(--paper-deep); }
+  aside p:last-child { margin: 0; }
+  @media (max-width: 720px) {
+    .book-detail { grid-template-columns: 1fr; }
+    .cover-column { position: static; max-width: 360px; }
+    .back { margin-bottom: 3rem; }
+  }
+</style>

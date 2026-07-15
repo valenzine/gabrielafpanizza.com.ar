@@ -1,0 +1,26 @@
+---
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="monogram" aria-hidden="true">GFP</div>
+    <div>
+      <p class="footer-name">Gabriela Fernández Panizza</p>
+      <p class="quiet">Educadora, autora y creadora radial · San Carlos de Bariloche</p>
+    </div>
+    <p class="quiet footer-note">Una selección de libros, proyectos y textos construida para preservar y compartir su trayectoria.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer { margin-top: 4rem; padding-block: 3rem; color: var(--cream); background: var(--moss-dark); }
+  .footer-grid { display: grid; grid-template-columns: 70px 1fr minmax(220px, 0.65fr); gap: 2rem; align-items: end; }
+  .monogram { font-family: var(--serif); font-size: 1.4rem; letter-spacing: -0.05em; }
+  .footer-name { margin: 0 0 0.25rem; font-family: var(--serif); font-size: 1.55rem; }
+  .site-footer .quiet { color: rgba(250, 247, 240, 0.7); }
+  .footer-note { max-width: 38ch; margin: 0; font-size: 0.82rem; }
+  @media (max-width: 680px) {
+    .footer-grid { grid-template-columns: 55px 1fr; }
+    .footer-note { grid-column: 1 / -1; }
+  }
+</style>

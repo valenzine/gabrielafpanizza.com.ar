@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Arrow from '../components/Arrow.astro';
+import { getCollection, getEntry, render } from 'astro:content';
+
+const page = await getEntry('pages', 'proyectos');
+if (!page) throw new Error('Falta src/content/pages/proyectos.md');
+const { Content } = await render(page);
+const projects = (await getCollection('articles'))
+  .filter((entry) => entry.data.project)
+  .sort((a, b) => (a.data.projectOrder ?? 99) - (b.data.projectOrder ?? 99));
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <header class="page-hero container">
+    <p class="eyebrow">{page.data.eyebrow}</p>
+    <h1>{page.data.heading}</h1>
+    <p class="lead">{page.data.lead}</p>
+  </header>
+
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-intro reading-width"><Content /></div>
+      <div class="projects-grid">
+        {projects.map((project, index) => (
+          <article class:list={['project-card', { featured: index === 0 }]}>
+            <p class="eyebrow">{project.data.projectLabel} · {project.data.displayDate}</p>
+            <h2>{project.data.title}</h2>
+            <p>{project.data.projectSummary}</p>
+            <a href={`/archivo/${project.id}/`}>Leer el proyecto <Arrow /></a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .projects-section { padding-block: 1rem clamp(5rem, 10vw, 9rem); }
+  .projects-intro { margin-bottom: clamp(3rem, 7vw, 6rem); color: var(--ink-soft); font-family: var(--serif); font-size: 1.35rem; }
+  .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .project-card { display: flex; flex-direction: column; min-height: 380px; padding: clamp(2rem, 5vw, 4rem); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .project-card.featured { color: var(--cream); background: var(--moss-dark); }
+  .project-card.featured .eyebrow, .project-card.featured > p { color: rgba(250,247,240,0.72); }
+  .project-card h2 { max-width: 13ch; font-size: clamp(2.4rem, 4.5vw, 4.5rem); }
+  .project-card > p:not(.eyebrow) { max-width: 46ch; margin-block: 2rem; color: var(--ink-soft); }
+  .project-card a { display: inline-flex; align-items: center; gap: 0.5rem; width: fit-content; margin-top: auto; }
+  .project-card a :global(svg) { width: 1rem; }
+  @media (max-width: 720px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card { min-height: 320px; }
+  }
+</style>

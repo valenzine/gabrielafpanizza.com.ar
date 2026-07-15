@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('articles')).filter((post) => post.data.available);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+interface Props { post: CollectionEntry<'articles'>; }
+const { post } = Astro.props;
+const { Content } = await render(post);
+const published = post.data.date;
+const publishedLabel = post.data.displayDate ?? new Intl.DateTimeFormat('es-AR', { timeZone: 'UTC' }).format(published);
+---
+
+<BaseLayout title={post.data.title} description={`Artículo de Gabriela Fernández Panizza, publicado en ${published.getUTCFullYear()}.`}>
+  <article class="article container">
+    <header class:list={['article-header', { 'with-hero': post.data.heroImage }]}>
+      <a class="back" href="/archivo/">← Volver al archivo</a>
+      <div class="header-copy">
+        <p class="eyebrow">{post.data.source ? `${post.data.source} · ` : ''}{publishedLabel}</p>
+        <h1>{post.data.title}</h1>
+        {post.data.projectSummary && <p class="summary">{post.data.projectSummary}</p>}
+      </div>
+      {post.data.heroImage && <img src={post.data.heroImage} alt={post.data.heroAlt ?? ''} />}
+    </header>
+    <div class="article-body"><Content /></div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article { padding-block: clamp(4rem, 10vw, 8rem); }
+  .article-header, .article-body { width: min(100%, 780px); margin-inline: auto; }
+  .article-header.with-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr); gap: clamp(2rem, 6vw, 5rem); width: min(100%, 1080px); align-items: end; }
+  .back { display: inline-block; margin-bottom: clamp(3rem, 8vw, 6rem); color: var(--ink-soft); font-size: 0.85rem; }
+  .with-hero .back { grid-column: 1 / -1; margin-bottom: 0; }
+  h1 { max-width: 15ch; font-size: clamp(3rem, 5.4vw, 4.8rem); }
+  .summary { max-width: 38ch; margin-top: 1.5rem; color: var(--ink-soft); font-family: var(--serif); font-size: 1.3rem; line-height: 1.35; }
+  .article-header img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; box-shadow: 0 18px 40px rgba(37,39,34,0.14); }
+  .article-body { margin-top: clamp(3rem, 8vw, 6rem); }
+  .article-body > :global(p:first-child) { color: var(--ink); font-family: var(--serif); font-size: clamp(1.25rem, 2vw, 1.55rem); line-height: 1.45; }
+  .article-body :global(h2) { margin-block: 3.5rem 1.2rem; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; }
+  .article-body :global(h3) { margin-block: 2.25rem 0.9rem; font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.15; }
+  .article-body :global(ul), .article-body :global(ol) { margin-block: 1.25rem 2rem; padding-left: 1.4rem; }
+  .article-body :global(li) { margin-bottom: 0.65rem; }
+  .article-body :global(strong) { font-weight: 500; }
+  .article-body :global(em) { font-family: var(--serif); font-size: 1.1em; }
+  .article-body :global(a) { overflow-wrap: anywhere; }
+  @media (max-width: 760px) {
+    .article-header.with-hero { grid-template-columns: 1fr; }
+    .with-hero .back { grid-column: auto; }
+    .article-header img { max-width: 520px; }
+  }
+</style>

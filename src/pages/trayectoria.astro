@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry, render } from 'astro:content';
+
+const page = await getEntry('pages', 'trayectoria-detallada');
+if (!page) throw new Error('Falta src/content/pages/trayectoria-detallada.md');
+const { Content } = await render(page);
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <header class="page-hero container">
+    <p class="eyebrow">{page.data.eyebrow}</p>
+    <h1>{page.data.heading}</h1>
+    <p class="lead">{page.data.lead}</p>
+  </header>
+
+  <article class="trajectory-section">
+    <div class="container trajectory-copy">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .trajectory-section { padding-block: clamp(4rem, 9vw, 8rem); background: var(--cream); }
+  .trajectory-copy { width: min(calc(100% - 2rem), 820px); }
+  .trajectory-copy :global(p) { margin-block: 0 1rem; }
+  .trajectory-copy :global(strong) { color: var(--ink); font-family: var(--serif); font-size: 1.35rem; }
+  .trajectory-copy :global(ul) { margin-block: 0.8rem 2rem; padding-left: 1.2rem; }
+  .trajectory-copy :global(li) { margin-bottom: 0.7rem; }
+  .trajectory-copy :global(hr) { margin-block: 3rem; border: 0; border-top: 1px solid var(--line); }
+</style>

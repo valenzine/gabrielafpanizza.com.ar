@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookCard from '../../components/BookCard.astro';
+import { getCollection } from 'astro:content';
+import { toBook } from '../../lib/books';
+
+const books = (await getCollection('books'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(toBook);
+---
+
+<BaseLayout title="Libros" description="Libros y publicaciones de Gabriela Fernández Panizza sobre educación, juego, alfabetización y estrategias de aprendizaje.">
+  <header class="page-hero container">
+    <p class="eyebrow">Publicaciones</p>
+    <h1>Libros para enseñar y aprender.</h1>
+    <p class="lead">Una obra que recorre la alfabetización, el juego, las matemáticas, la formación ética y las estrategias de estudio.</p>
+  </header>
+
+  <section class="books-list">
+    <div class="container book-grid">
+      {books.map((book) => <BookCard book={book} />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .books-list { padding-block: 2rem clamp(5rem, 10vw, 9rem); }
+  .book-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(3rem, 7vw, 6rem) clamp(1.5rem, 4vw, 3.5rem); }
+  @media (max-width: 760px) { .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 460px) { .book-grid { grid-template-columns: 1fr; } }
+</style>

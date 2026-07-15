@@ -1,0 +1,48 @@
+---
+const path = Astro.url.pathname;
+
+const links = [
+  { href: '/gabriela/', label: 'Gabriela' },
+  { href: '/libros/', label: 'Libros' },
+  { href: '/proyectos/', label: 'Proyectos' },
+  { href: '/mama-osa/', label: 'Mamá Osa' },
+  { href: '/archivo/', label: 'Archivo' }
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href="/" aria-label="Gabriela Fernández Panizza, inicio">
+      Gabriela Fernández Panizza
+    </a>
+    <nav aria-label="Navegación principal">
+      <ul>
+        {links.map((link) => (
+          <li>
+            <a href={link.href} aria-current={path.startsWith(link.href) ? 'page' : undefined}>{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header { border-top: 5px solid var(--moss); }
+  .header-inner {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block: 1.35rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .wordmark { font-family: var(--serif); font-size: 1.25rem; font-weight: 500; text-decoration: none; }
+  ul { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; margin: 0; padding: 0; list-style: none; }
+  nav a { color: var(--ink-soft); font-size: 0.88rem; text-decoration: none; }
+  nav a:hover, nav a[aria-current='page'] { color: var(--ink); }
+  nav a[aria-current='page'] { text-decoration: underline; text-decoration-color: var(--terracotta); }
+  @media (max-width: 680px) {
+    .header-inner { align-items: flex-start; flex-direction: column; gap: 0.8rem; }
+  }
+</style>
