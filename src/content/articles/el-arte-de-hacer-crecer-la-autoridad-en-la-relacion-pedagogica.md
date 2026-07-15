@@ -4,7 +4,6 @@ date: 2013-11-14
 available: true
 order: 2
 ---
-
 La cuestión de la autoridad en la relación pedagógica es una preocupación que me acompaña desde los inicios de mi carrera. ¿Cómo hacer para ejercer autoridad sin ser autoritario ni caer en el <i>laissez faire</i> por falta de ella? ¿Se puede pensar en un tipo de autoridad que supere la relación mandar/obedecer, felicitar/sancionar? ¿Cuál es la relación que existe entre autoridad, poder y saber? ¿Dónde reside la autoridad del docente? ¿Alguien se la da? ¿Alguien se la puede quitar? ¿Se obtiene, se construye, se ejerce?
 
 Así pensada, la autoridad implica una tensión entre dos o más variables. Me propongo analizar algunas de estas tensiones.

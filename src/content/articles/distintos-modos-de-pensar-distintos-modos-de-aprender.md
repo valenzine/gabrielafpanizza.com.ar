@@ -10,8 +10,6 @@ projectLabel: "Marco pedagógico"
 projectSummary: "Una introducción a las múltiples maneras de ser inteligente y a sus implicancias para comprender la diversidad en el aula."
 available: true
 ---
-
-\
 La Teoría de las Inteligencias Múltiples de Howard Gardner permite comprender mejor los distintos estilos de aprendizaje, facilitando el acceso al conocimiento.
 
 ¿Quién es más inteligente, aquél que resuelve complicados problemas matemáticos o el vendedor que nos convence de comprar sus productos? ¿El niño que construye una nave espacial con sus “legos” o el que aprende rápidamente una canción?
@@ -26,7 +24,7 @@ Howard Gardner, un psicólogo cognitivista de la Universidad de Harvard, sostien
 
 ## ¡Celebremos nuestras diferencias!
 
-## La Teoría de las Inteligencias Múltiples
+## La teoría de las inteligencias múltiples
 
  *“Desde mi punto de vista, la esencia de la teoría es respetar las abundantes diferencias que existen entre la gente, las variaciones múltiples en las formas de aprender, los diferentes métodos de evaluación y el número incalculable de maneras que éstas pueden dejar una huella en el mundo”* Howard Gardner
 

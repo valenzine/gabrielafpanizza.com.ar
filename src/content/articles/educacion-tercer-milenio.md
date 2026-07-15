@@ -14,15 +14,15 @@ available: true
 Catamarca - 21 al 25 de abril de 1999
 
 *Publicado en "Espejos del Alma", Arte, cultura y sociedad de la Patagonia.\
-Año 1 - Número 8 - Junio / Julio 1999..\
+Año 1 - Número 8 - Junio / Julio 1999.\
 © Gabriela Fernández Panizza*
 
 "Una puerta abierta a las mentes más brillantes" Con esta frase estaba encabezada la convocatoria al Congreso. Imposible no tentarse...espiar por la rendija y encontrar que el listado de disertantes presentado por los organizadores era más que atrayente: especialistas en Educación, filósofos, psicólogos, psicopedagogos y sociólogos. El temario también: creatividad, comunicación, desarrollo de la inteligencia, ecología, educación virtual, educación en valores, biodanza, dinámicas humanas y las 5 disciplinas, aportes de la Gestalt, Coaching Ontológico, la gestión creativa en la escuela, y otros.
 
 Una puerta abierta...justo en el momento en el que uno percibe que tantas puertas se cierran, que el mundo ya no es el mismo, que cambia demasiado rápido para el sistema educativo que nosotros conocemos, en el que nos formamos. Una puerta abierta cuya propuesta es desaprender para poder estar capacitados para enseñar a las nuevas generaciones.
 
-*"Generalmente aprendemos a interpretar el arriesgar o el ir a lo desconocido como algo peligroso. De esa manera negamos nuestra posibilidad de aprender, porque justamente aprender significa ir a lo desconocido."*\
-*Elena Espinal.*
+> "Generalmente aprendemos a interpretar el arriesgar o el ir a lo desconocido como algo peligroso. De esa manera negamos nuestra posibilidad de aprender, porque justamente aprender significa ir a lo desconocido."\
+> Elena Espinal.
 
 ## Paisajes de Catamarca
 
