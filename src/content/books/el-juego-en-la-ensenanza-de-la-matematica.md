@@ -2,7 +2,7 @@
 title: "El juego en la enseñanza de la matemática"
 subtitle: "Actividades para los cinco ejes del currículo"
 year: 2015
-publisher: "Ediciones Novedades Educativas"
+publisher: "Noveduc"
 role: "Coautora · Equipo Ludomateca"
 description: "Sesenta juegos para aprender número, operaciones, magnitudes y medida, geometría, estadística y probabilidad en la escuela primaria."
 isbn: "978-987-538-433-0"
