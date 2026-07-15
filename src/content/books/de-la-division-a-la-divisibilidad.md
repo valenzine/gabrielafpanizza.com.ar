@@ -8,6 +8,7 @@ description: "Secuencias de enseñanza que articulan juegos y otras actividades 
 isbn: "978-987-538-659-4"
 pages: 240
 collaborators: ["Evelina Brinnitzer","Silvia Pérez","María Fernanda Gallego","María Edith Collado"]
+cover: "/assets/de-la-division-a-la-divisibilidad.jpg"
 coverTone: "terracotta"
 featured: true
 externalUrl: "https://www.noveduc.com/productos/de-la-division-a-la-divisibilidad/"

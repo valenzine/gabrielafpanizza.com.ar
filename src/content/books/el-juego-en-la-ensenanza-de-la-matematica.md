@@ -9,6 +9,7 @@ isbn: "978-987-538-433-0"
 pages: 272
 collaborators: ["Evelina Brinnitzer","María Edith Collado","María Fernanda Gallego","Silvia Pérez","Flavia Santamaría"]
 recognition: "Mención de Honor del Premio Isay Klasse al Libro de Educación 2015."
+cover: "/assets/el-juego-en-la-ensenanza-de-la-matematica.jpg"
 coverTone: "moss"
 externalUrl: "https://www.noveduc.com/productos/juego-en-la-ensenanza-de-la-matematica-el/"
 order: 6
