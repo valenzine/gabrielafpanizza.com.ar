@@ -4,6 +4,7 @@ year: 2015
 publisher: "Editorial Estrada"
 role: "Colaboradora"
 description: "Actividades integradoras orientadas al desarrollo de las inteligencias múltiples para la serie de Ciencias Sociales y Ciencias Naturales."
+cover: "/assets/biciencias.webp"
 coverTone: "blue"
 order: 8
 ---

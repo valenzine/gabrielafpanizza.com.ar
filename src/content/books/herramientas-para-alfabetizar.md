@@ -6,6 +6,7 @@ role: "Autora"
 description: "Una propuesta para acercar a niñas y niños al mundo de la lectura y la escritura mediante un ambiente alfabetizador, el juego y proyectos comunicativos."
 isbn: "978-987-06-0866-0"
 pages: 176
+cover: "/assets/herramientas-para-alfabetizar.jpg"
 coverTone: "blue"
 externalUrl: "https://www.aique.com.ar/libro/herramientas-para-alfabetizar-en-el-jardin-de-infantes/"
 order: 4

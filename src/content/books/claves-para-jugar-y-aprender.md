@@ -9,6 +9,7 @@ isbn: "978-631-6603-35-7"
 pages: 352
 collaborators: ["Evelina Brinnitzer"]
 recognition: "Declarado de interés educativo y social por la Legislatura de Río Negro en 2025."
+cover: "/assets/claves-para-jugar-y-aprender.jpg"
 coverTone: "moss"
 featured: true
 externalUrl: "https://www.noveduc.com/productos/claves-para-jugar-y-aprender-en-las-aulas/"
