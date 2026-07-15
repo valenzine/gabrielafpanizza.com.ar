@@ -1,5 +1,6 @@
 ---
 import type { Book } from '../lib/books';
+import { withBase } from '../lib/paths';
 import BookCover from './BookCover.astro';
 import Arrow from './Arrow.astro';
 
@@ -8,14 +9,14 @@ const { book } = Astro.props;
 ---
 
 <article class="book-card">
-  <a class="cover-link" href={`/libros/${book.slug}/`} aria-label={`Ver ${book.title}`}>
+  <a class="cover-link" href={withBase(`/libros/${book.slug}/`)} aria-label={`Ver ${book.title}`}>
     <BookCover book={book} compact />
   </a>
   <div class="book-info">
     <p class="book-year">{book.year} · {book.role}</p>
-    <h3><a href={`/libros/${book.slug}/`}>{book.title}</a></h3>
+    <h3><a href={withBase(`/libros/${book.slug}/`)}>{book.title}</a></h3>
     <p>{book.publisher}</p>
-    <a class="details" href={`/libros/${book.slug}/`}>Ver libro <Arrow /></a>
+    <a class="details" href={withBase(`/libros/${book.slug}/`)}>Ver libro <Arrow /></a>
   </div>
 </article>
 

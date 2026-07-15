@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { withBase } from '../../lib/paths';
 
 const articles = (await getCollection('articles')).sort((a, b) => a.data.order - b.data.order);
 const posts = articles.filter((article) => article.data.available);
@@ -21,8 +22,8 @@ const earlyArticles = articles.filter((article) => !article.data.available);
         {posts.map((post) => (
           <li>
             <span>{post.data.date.getUTCFullYear()}</span>
-            <div><h3><a href={`/archivo/${post.id}/`}>{post.data.title}</a></h3>{post.data.source && <p>{post.data.source}</p>}</div>
-            <a href={`/archivo/${post.id}/`} aria-label={`Leer ${post.data.title}`}>Leer →</a>
+            <div><h3><a href={withBase(`/archivo/${post.id}/`)}>{post.data.title}</a></h3>{post.data.source && <p>{post.data.source}</p>}</div>
+            <a href={withBase(`/archivo/${post.id}/`)} aria-label={`Leer ${post.data.title}`}>Leer →</a>
           </li>
         ))}
       </ol>

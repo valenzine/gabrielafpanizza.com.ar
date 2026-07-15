@@ -4,6 +4,7 @@ import BookCard from '../components/BookCard.astro';
 import Arrow from '../components/Arrow.astro';
 import { getCollection, getEntry, render } from 'astro:content';
 import { toBook } from '../lib/books';
+import { withBase } from '../lib/paths';
 
 const home = await getEntry('pages', 'inicio');
 if (!home) throw new Error('Missing src/content/pages/inicio.md');
@@ -21,10 +22,10 @@ const featuredBooks = (await getCollection('books'))
         <p class="eyebrow">{home.data.eyebrow}</p>
         <h1>{home.data.heading}</h1>
         <p class="lead">{home.data.lead}</p>
-        <a class="button-link" href="/gabriela/">Conocer su trayectoria <Arrow /></a>
+        <a class="button-link" href={withBase('/gabriela/')}>Conocer su trayectoria <Arrow /></a>
       </div>
       <figure class="hero-botanical">
-        <img src="/assets/manzana-portada.png" alt="Ilustración botánica coloreada de flores de manzano" />
+        <img src={withBase('/assets/manzana-portada.png')} alt="Ilustración botánica coloreada de flores de manzano" />
         <figcaption><HomeNote /></figcaption>
       </figure>
     </div>
@@ -37,7 +38,7 @@ const featuredBooks = (await getCollection('books'))
           <p class="eyebrow">Publicaciones</p>
           <h2>Obra reciente</h2>
         </div>
-        <a href="/libros/">Ver todos los libros →</a>
+        <a href={withBase('/libros/')}>Ver todos los libros →</a>
       </div>
       <div class="book-grid">
         {featuredBooks.map((book) => <BookCard book={book} />)}
@@ -51,7 +52,7 @@ const featuredBooks = (await getCollection('books'))
         <p class="eyebrow">Radio Nacional Bariloche · 2018–2019</p>
         <h2>Las cosas de<br />Mamá Osa</h2>
         <p class="lead">Una cueva imaginaria llena de cuentos, canciones, juegos y voces de niñas y niños de Bariloche y la Línea Sur.</p>
-        <a class="button-link light" href="/mama-osa/">Entrar a la cueva <Arrow /></a>
+        <a class="button-link light" href={withBase('/mama-osa/')}>Entrar a la cueva <Arrow /></a>
       </div>
       <div class="wave-wrap" aria-hidden="true">
         <div class="moon"></div>
@@ -72,7 +73,7 @@ const featuredBooks = (await getCollection('books'))
           <p class="eyebrow">Una mirada pedagógica</p>
           <h2>Tres hilos, una trayectoria</h2>
         </div>
-        <a href="/proyectos/">Conocer sus proyectos →</a>
+        <a href={withBase('/proyectos/')}>Conocer sus proyectos →</a>
       </div>
       <div class="theme-grid">
         <article><span>01</span><h3>El juego</h3><p>Como experiencia, desafío y forma de comprender.</p></article>

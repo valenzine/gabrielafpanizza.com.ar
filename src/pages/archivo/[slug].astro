@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { withBase } from '../../lib/paths';
 
 export async function getStaticPaths() {
   const posts = (await getCollection('articles')).filter((post) => post.data.available);
@@ -17,13 +18,13 @@ const publishedLabel = post.data.displayDate ?? new Intl.DateTimeFormat('es-AR',
 <BaseLayout title={post.data.title} description={`Artículo de Gabriela Fernández Panizza, publicado en ${published.getUTCFullYear()}.`}>
   <article class="article container">
     <header class:list={['article-header', { 'with-hero': post.data.heroImage }]}>
-      <a class="back" href="/archivo/">← Volver al archivo</a>
+      <a class="back" href={withBase('/archivo/')}>← Volver al archivo</a>
       <div class="header-copy">
         <p class="eyebrow">{post.data.source ? `${post.data.source} · ` : ''}{publishedLabel}</p>
         <h1>{post.data.title}</h1>
         {post.data.projectSummary && <p class="summary">{post.data.projectSummary}</p>}
       </div>
-      {post.data.heroImage && <img src={post.data.heroImage} alt={post.data.heroAlt ?? ''} />}
+      {post.data.heroImage && <img src={withBase(post.data.heroImage)} alt={post.data.heroAlt ?? ''} />}
     </header>
     <div class="article-body"><Content /></div>
   </article>

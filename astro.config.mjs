@@ -1,7 +1,12 @@
 import { defineConfig } from 'astro/config';
 
+const isGitHubProjectSite = process.env.DEPLOY_TARGET === 'github-pages';
+
 export default defineConfig({
-  site: 'https://valenzine.github.io/gabrielafpanizza.com.ar/',
+  site: isGitHubProjectSite
+    ? 'https://valenzine.github.io'
+    : 'https://gabrielafpanizza.com.ar',
+  base: isGitHubProjectSite ? '/gabrielafpanizza.com.ar' : undefined,
   output: 'static',
   build: {
     format: 'directory'

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Arrow from '../components/Arrow.astro';
 import { getCollection, getEntry, render } from 'astro:content';
+import { withBase } from '../lib/paths';
 
 const page = await getEntry('pages', 'proyectos');
 if (!page) throw new Error('Missing src/content/pages/proyectos.md');
@@ -27,7 +28,7 @@ const projects = (await getCollection('articles'))
             <p class="eyebrow">{project.data.projectLabel} · {project.data.displayDate}</p>
             <h2>{project.data.title}</h2>
             <p>{project.data.projectSummary}</p>
-            <a href={`/archivo/${project.id}/`}>Leer el proyecto <Arrow /></a>
+            <a href={withBase(`/archivo/${project.id}/`)}>Leer el proyecto <Arrow /></a>
           </article>
         ))}
       </div>

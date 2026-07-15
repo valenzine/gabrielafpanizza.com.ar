@@ -42,4 +42,14 @@ The HTML pages preserved in `archived_site/` were migrated with `scripts/migrate
 
 ## GitHub Pages deployment
 
-The `.github/workflows/deploy.yml` workflow builds and deploys the site when changes reach `main`. Before the first deployment, select **Settings → Pages → Source: GitHub Actions** in GitHub and configure the `gabrielafpanizza.com.ar` custom domain on the same screen. The `public/CNAME` file is included in the published artifact, but it does not replace DNS configuration.
+The `.github/workflows/deploy.yml` workflow builds and deploys the site when changes reach `main`.
+
+Until the custom domain is configured, the workflow uses the GitHub Pages project URL:
+
+```text
+https://valenzine.github.io/gabrielafpanizza.com.ar/
+```
+
+This is controlled by `DEPLOY_TARGET=github-pages` in the workflow. Astro applies the `/gabrielafpanizza.com.ar` base path to all internal links and local assets, while `npm run dev` continues to work at `http://localhost:4321/`.
+
+Once `gabrielafpanizza.com.ar` is configured in **Settings → Pages**, remove `DEPLOY_TARGET` from the build step. The next deployment will publish from the domain root. The `public/CNAME` file is included in the artifact, but it does not replace DNS configuration.

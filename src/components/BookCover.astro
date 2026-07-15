@@ -1,5 +1,6 @@
 ---
 import type { Book } from '../lib/books';
+import { withBase } from '../lib/paths';
 
 interface Props { book: Book; compact?: boolean; }
 const { book, compact = false } = Astro.props;
@@ -7,7 +8,7 @@ const { book, compact = false } = Astro.props;
 
 <div class:list={['book-cover', `tone-${book.coverTone}`, { compact, photographic: Boolean(book.cover) }]}>
   {book.cover ? (
-    <img src={book.cover} alt={`Tapa de ${book.title}`} loading="lazy" />
+    <img src={withBase(book.cover)} alt={`Tapa de ${book.title}`} loading="lazy" />
   ) : (
     <>
       <span class="cover-publisher">{book.publisher}</span>

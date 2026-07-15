@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, getEntry, render } from 'astro:content';
+import { withBase } from '../lib/paths';
 
 const page = await getEntry('pages', 'gabriela');
 if (!page) throw new Error('Missing src/content/pages/gabriela.md');
@@ -25,13 +26,13 @@ const projects = (await getCollection('articles'))
   <section class="bio-section">
     <div class="container bio-grid">
       <div class="portrait-mark">
-        <img src="/assets/manzana-portada.png" alt="Ilustración botánica coloreada de flores de manzano" />
+        <img src={withBase('/assets/manzana-portada.png')} alt="Ilustración botánica coloreada de flores de manzano" />
         <span>San Carlos de Bariloche · Patagonia Argentina</span>
       </div>
       <div class="bio-copy reading-width">
         <p class="eyebrow">Una vida en las aulas</p>
         <Content />
-        <a class="button-link detailed-link" href="/trayectoria/">Ver trayectoria detallada →</a>
+        <a class="button-link detailed-link" href={withBase('/trayectoria/')}>Ver trayectoria detallada →</a>
       </div>
     </div>
   </section>
@@ -40,15 +41,15 @@ const projects = (await getCollection('articles'))
     <div class="container">
       <div class="section-rule">
         <div><p class="eyebrow">Ideas llevadas a la práctica</p><h2>Proyectos y experiencias</h2></div>
-        <a href="/proyectos/">Ver todos →</a>
+        <a href={withBase('/proyectos/')}>Ver todos →</a>
       </div>
       <div class="project-links">
         {projects.map((project, index) => (
           <article class:list={{ primary: index === 0 }}>
             <p class="eyebrow">{project.data.projectLabel} · {project.data.displayDate}</p>
-            <h3><a href={`/archivo/${project.id}/`}>{project.data.title}</a></h3>
+            <h3><a href={withBase(`/archivo/${project.id}/`)}>{project.data.title}</a></h3>
             <p>{project.data.projectSummary}</p>
-            <a class="read-project" href={`/archivo/${project.id}/`}>Leer proyecto →</a>
+            <a class="read-project" href={withBase(`/archivo/${project.id}/`)}>Leer proyecto →</a>
           </article>
         ))}
       </div>

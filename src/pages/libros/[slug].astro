@@ -4,6 +4,7 @@ import BookCover from '../../components/BookCover.astro';
 import Arrow from '../../components/Arrow.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import { toBook } from '../../lib/books';
+import { withBase } from '../../lib/paths';
 
 export async function getStaticPaths() {
   const entries = await getCollection('books');
@@ -20,7 +21,7 @@ const { Content } = await render(entry);
   <article class="book-detail container">
     <div class="cover-column"><BookCover book={book} /></div>
     <div class="book-copy">
-      <a class="back" href="/libros/">← Todos los libros</a>
+      <a class="back" href={withBase('/libros/')}>← Todos los libros</a>
       <p class="eyebrow">{book.year} · {book.role}</p>
       <h1>{book.title}</h1>
       {book.subtitle && <p class="subtitle">{book.subtitle}</p>}
