@@ -8,7 +8,6 @@ heroImage: "/assets/aprender.jpg"
 heroAlt: "Ilustración de la publicación Aprender a ser"
 available: true
 ---
-
 # Aprender a ser.
 
 Publicado en "Espejos del Alma", Arte, cultura y sociedad de la Patagonia.\
