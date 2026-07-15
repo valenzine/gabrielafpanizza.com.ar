@@ -50,6 +50,6 @@ Until the custom domain is configured, the workflow uses the GitHub Pages projec
 https://valenzine.github.io/gabrielafpanizza.com.ar/
 ```
 
-This is controlled by `DEPLOY_TARGET=github-pages` in the workflow. Astro applies the `/gabrielafpanizza.com.ar` base path to all internal links and local assets, while `npm run dev` continues to work at `http://localhost:4321/`.
+GitHub Pages is the deployment platform in both cases. `GITHUB_PAGES_CUSTOM_DOMAIN=false` states that it is currently serving the project URL. During GitHub Actions builds, Astro therefore applies the `/gabrielafpanizza.com.ar` base path to all internal links and local assets. `npm run dev` continues to work at `http://localhost:4321/`.
 
-Once `gabrielafpanizza.com.ar` is configured in **Settings → Pages**, remove `DEPLOY_TARGET` from the build step. The next deployment will publish from the domain root. The `public/CNAME` file is included in the artifact, but it does not replace DNS configuration.
+Once `gabrielafpanizza.com.ar` is configured in **Settings → Pages**, change `GITHUB_PAGES_CUSTOM_DOMAIN` to `true`. The next GitHub Pages deployment will publish from the domain root. The `public/CNAME` file is included in the artifact, but it does not replace DNS configuration.
