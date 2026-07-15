@@ -4,6 +4,7 @@ year: 2015
 publisher: "Editorial Estrada"
 role: "Colaboradora"
 description: "Actividades integradoras orientadas al desarrollo de las inteligencias múltiples para la serie de áreas integradas del primer ciclo."
+cover: "/assets/renata-la-suricata.jpg"
 coverTone: "ochre"
 order: 7
 ---

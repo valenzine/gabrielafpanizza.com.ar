@@ -5,7 +5,6 @@ publisher: "Aique Grupo Editor"
 role: "Autora"
 description: "Libros de texto para primero, segundo y tercer grado, centrados en Lengua y efemérides."
 recognition: "Declarados de interés provincial por la Resolución 2210/05."
-cover: "/assets/preguntones.jpg"
 coverTone: "terracotta"
 order: 9
 ---
