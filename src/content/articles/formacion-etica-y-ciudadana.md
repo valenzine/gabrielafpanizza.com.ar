@@ -43,7 +43,7 @@ En primer lugar, debemos considerar que al trabajar estos contenidos, que apelan
 
 El rol del docente será, fundamentalmente, generar espacios de reflexión y discusión, en un clima de confianza mutua, favoreciendo la comunicación, el intercambio de opiniones, la expresión de sentimientos, la aceptación, el respeto mutuo, la construcción de acuerdos.
 
-## Permiso ¿Puedo jugar?
+## Permiso, ¿puedo jugar?
 
 El juego será nuestro gran aliado, a través del mismo los chicos pueden proyectar elementos de su vida afectiva que servirán luego como material para la reflexión e incorporar conceptos referidos a reglas y normas. Las dramatizaciones y "juego de roles" constituyen estrategias que nos serán de gran utilidad, no olvidemos que es a través del juego dramático que los chicos incorporan gran parte de las normas sociales, imitando el mundo de los adultos. Las expresiones plásticas servirán como disparador o como cierre de las distintas experiencias que realicemos, permitiéndonos analizar sentimientos, emociones y sensaciones. Nuestro trabajo será interdisciplinario, dado que los contenidos que abarca esta área sirven de fundamento y subyacen en todas las actividades que realizamos en la escuela y están presentes en todos nuestros actos.
 
@@ -63,7 +63,7 @@ Se incluyen bajo este título contenidos orientados a comprender los procesos ps
 
 Los valores influyen decisivamente en nuestra existencia. Actuamos, juzgamos y tomamos decisiones en base a nuestra propia escala de valores, la cual vamos construyendo basándonos en experiencias personales y de acuerdo al medio social en el que estamos inmersos.
 
-## Valores Universales
+## Valores universales
 
 ¿Es posible reconocer valores universales? La discusión es amplia y existen diversas posturas al respecto, desde el escepticismo que declara imposible una fundamentación de valores universales en un mundo fragmentado, hasta el fundamentalismo que toma lo particular como universal.
 
@@ -101,9 +101,9 @@ MANOS A LA OBRA!
 
 ## Desarrollo de experiencias
 
-## Bloque 1: Persona
+## Bloque 1: persona
 
-### Experiencia Nº 1: «¡Este/a soy yo!»
+### Experiencia n.º 1: «¡Este/a soy yo!»
 
 Si vamos a hablar de las personas, cómo son, cómo sienten, qué hacen, nada mejor que empezar por nosotros mismos. Toda experiencia que ayude a clarificar estos aspectos les aportará a los chicos elementos para lograr una clara imagen de ellos mismos, mayor seguridad y aceptación. Cualquiera sea la edad de los chicos con los que estemos trabajando, debemos comenzar por generar un clima de confianza. Es conveniente destinar un rincón del aula en el que podamos sentarnos en ronda para favorecer la comunicación, conseguir un pedazo de alfombra y almohadones, decorarlo, armar una cartelera y ponerle un nombre. Realizaremos esta actividad junto con los chicos, a principio de año, de esta manera favoreceremos que se apropien del espacio y estaremos también trabajando aspectos que hacen a su identidad como grupo. Si el espacio es chico, no nos desanimemos... podemos enrollar la alfombra, apilar los almohadones o encontrar otra solución.
 
@@ -115,9 +115,9 @@ De acuerdo a la edad de los chicos con los que estemos trabajando, podemos usar 
 
 Esta experiencia puede continuarse a lo largo del año, usando el rincón al comienzo de la jornada para comentar noticias y novedades, para organizar las actividades del día junto con los chicos, para evaluar actitudes que observamos, etc. Su uso no será privativo del área que nos ocupa, podemos usarlo para desarrollar el lenguaje oral, narrar cuentos e historias o hacer juegos con cálculos mentales.
 
-## Bloque 3: Normas sociales
+## Bloque 3: normas sociales
 
-### Experiencia Nº 2: «Nos ponemos de acuerdo»
+### Experiencia n.º 2: «Nos ponemos de acuerdo»
 
 Para poder convivir y desarrollar nuestras actividades en forma armónica dentro de un grupo es necesario llegar acuerdos que conjuguen los intereses individuales y la búsqueda del bien común.
 
@@ -133,7 +133,7 @@ A medida que los alumnos vayan exponiendo y fundamentando sus posturas, el docen
 
 Esta experiencia puede repetirse a lo largo del año siempre que sea necesario ponerse de acuerdo para algo. Puede realizarse en forma periódica para planificar proyectos grupales o evaluarlos, o como espacio de discusión y debate de los distintos temas que resulten de interés.
 
-## Bloque 2: Valores
+## Bloque 2: valores
 
 ## Algunas consideraciones metodológicas
 
@@ -147,7 +147,7 @@ Nuestro trabajo será el de ayudar a descubrir los valores que subyacen en nuest
 
 Otra característica es que no son permanentes, cambian a lo largo de la vida de acuerdo a las distintas experiencias que tenemos.
 
-### Experiencia Nº 3: «En busca del modelo perdido»
+### Experiencia n.º 3: «En busca del modelo perdido»
 
 Cada uno de nosotros tiene algún modelo, una persona a la que admira por sus cualidades. Como docentes, seguramente recordaremos a aquella maestra que supo despertar en nosotros las ganas de transmitir a nuestros alumnos lo que alguna vez recibimos de ella. En los chicos estos modelos pueden ser sus padres, su hermano mayor, un cantante famoso, una actriz, un jugador de fútbol o el personaje de un cuento.
 

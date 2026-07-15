@@ -1,5 +1,5 @@
 ---
-title: "“EL ANÁLISIS DE LA PRÁCTICA DOCENTE: DEL DICHO AL HECHO”"
+title: "El análisis de la práctica docente: del dicho al hecho"
 date: 2016-06-27
 available: true
 order: 1

@@ -1,5 +1,5 @@
 ---
-title: "el juego como desempeño de comprensión"
+title: "El juego como desempeño de comprensión"
 date: 2012-10-14
 available: true
 order: 4

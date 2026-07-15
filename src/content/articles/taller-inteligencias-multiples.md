@@ -1,5 +1,5 @@
 ---
-title: "Estructura del taller de Inteligencias Múltiples"
+title: "Estructura del taller de inteligencias múltiples"
 date: "2001-01-01"
 displayDate: "2001"
 source: "Taller de capacitación"
@@ -26,7 +26,7 @@ Howard Gardner, sostiene que todos tenemos múltiples maneras de ser inteligente
 
 Palabras clave: inteligencia, auto-conocimiento, diversidad, talento, desarrollo, expresión, potencial, aceptación
 
-## Estructura del Taller
+## Estructura del taller
 
 A partir de experiencias concretas, juegos y dinámicas grupales, incorporar este nuevo concepto de inteligencia. Al finalizar cada dinámica se hará una sistematización de la información, construyendo la teoría sobre la práctica.
 

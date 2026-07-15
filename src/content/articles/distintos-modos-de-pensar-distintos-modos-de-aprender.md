@@ -26,7 +26,7 @@ Howard Gardner, un psicólogo cognitivista de la Universidad de Harvard, sostien
 
 ## ¡Celebremos nuestras diferencias!
 
-## La Teoría de las Inteligencias Múltiples
+## La teoría de las inteligencias múltiples
 
  *“Desde mi punto de vista, la esencia de la teoría es respetar las abundantes diferencias que existen entre la gente, las variaciones múltiples en las formas de aprender, los diferentes métodos de evaluación y el número incalculable de maneras que éstas pueden dejar una huella en el mundo”* Howard Gardner
 
