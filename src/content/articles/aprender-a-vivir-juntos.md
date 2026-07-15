@@ -8,12 +8,11 @@ heroImage: "/assets/convivir.jpg"
 heroAlt: "Ilustración de la publicación Aprender a vivir juntos"
 available: true
 ---
-
-Aprender a vivir juntos.
+# Aprender a vivir juntos.
 
 *Publicado en "Espejos del Alma", Arte, cultura y sociedad de la Patagonia.\
-Año 3 - Número 13 - Octubre 2000..\
-© Gabriela Fernández Panizza*
+Año 3 - Número 13 - Octubre 2000.\
+Gabriela Fernández Panizza*
 
 *El área de Formación Ética y Ciudadana propone tres bloques de contenidos básicos comunes para la Educación General Básica. un bloque que contempla todos los aspectos de la persona (ver "Aprender a ser", Espejos del Alma N° 11), y otros dos relacionados con los valores en la educación y las normas sociales.*
 

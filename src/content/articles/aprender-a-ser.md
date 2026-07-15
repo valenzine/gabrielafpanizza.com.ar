@@ -9,14 +9,14 @@ heroAlt: "Ilustración de la publicación Aprender a ser"
 available: true
 ---
 
-Aprender a ser.
+# Aprender a ser.
 
-*Publicado en "Espejos del Alma", Arte, cultura y sociedad de la Patagonia.\
+Publicado en "Espejos del Alma", Arte, cultura y sociedad de la Patagonia.\
 Año 2 - Número 11 - Abril 2000.\
-© Gabriela Fernández Panizza*
+Gabriela Fernández Panizza
 
-*"La sociedad demanda de la escuela que forme personas íntegras y buenos ciudadanos, que eduque para la vida plena de cada uno y de todos, y que lo haga conforme a su dignidad de persona y a las necesidades del mundo de hoy"\
-(Ministerio de Cultura y Educación de la Nación, Contenidos Básicos Comunes para la Educación General Básica, Introducción al Area de Formación Etica y Ciudadana)*
+> "La sociedad demanda de la escuela que forme personas íntegras y buenos ciudadanos, que eduque para la vida plena de cada uno y de todos, y que lo haga conforme a su dignidad de persona y a las necesidades del mundo de hoy"\
+> (Ministerio de Cultura y Educación de la Nación, Contenidos Básicos Comunes para la Educación General Básica, Introducción al Area de Formación Etica y Ciudadana)
 
 Cambia. Todo cambia. Todo cambia muy rápidamente. Los cambios acelerados de este fin de milenio con relación a los avances tecnológicos que han modificado el acceso a la información y los cambios socio político a nivel mundial, van modificando también nuestra forma de vida, nuestras creencias, nuestras costumbres y nuestros valores.
 
@@ -88,4 +88,5 @@ El respeto de las diferencias y el reconocimiento de los demás, el derecho a la
 
 Tal vez sea demasiado pedir. Tal vez sea sólo el comienzo de algo diferente, más a la medida del hombre. Tal vez sea una utopía más para los que nos empecinamos en ser optimistas.
 
-*"No se puede decir que la esperanza exista o no exista porque es como los caminos que recorren la Tierra. Al principio no hay camino, pero cuando muchos hombres marchan en la misma dirección surge el camino"*    Lu-Shin
+> "No se puede decir que la esperanza exista o no exista porque es como los caminos que recorren la Tierra. Al principio no hay camino, pero cuando muchos hombres marchan en la misma dirección surge el camino" /
+> Lu-Shin
