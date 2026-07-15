@@ -6,7 +6,7 @@ heading: "Trayectoria detallada"
 lead: "Una relación ampliada de su formación, trabajo docente, publicaciones y participación en proyectos educativos."
 ---
 
-<!-- TODO(content): Revisar y actualizar esta trayectoria con Gabriela. -->
+<!-- TODO(content): Review and update this career record with Gabriela. -->
 
 \
 

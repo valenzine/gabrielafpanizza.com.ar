@@ -1,45 +1,45 @@
-# Sitio de Gabriela Fernández Panizza
+# Gabriela Fernández Panizza's website
 
-Sitio estático construido con Astro. Todo el contenido editorial que debería poder actualizarse sin tocar componentes está en archivos Markdown dentro de `src/content/`.
+Static website built with Astro. All editorial content intended to be updated without changing components lives in Markdown files under `src/content/`.
 
-## Dónde editar
+## Content editing
 
-- `src/content/pages/`: portada, biografía y Mamá Osa.
-- `src/content/books/`: un archivo `.md` por libro.
-- `src/content/articles/`: un archivo `.md` por artículo o publicación.
-- `src/content/timeline/`: hitos de la trayectoria, ordenados mediante el campo `order`.
+- `src/content/pages/`: home page, biography, and Mamá Osa.
+- `src/content/books/`: one `.md` file per book.
+- `src/content/articles/`: one `.md` file per article or publication.
+- `src/content/timeline/`: career milestones, ordered with the `order` field.
 
-La página `src/content/pages/trayectoria-detallada.md` conserva la relación ampliada de experiencia, formación y participación en jornadas. Debe actualizarse con Gabriela; el comentario `TODO(content)` permanece como recordatorio interno.
+`src/content/pages/trayectoria-detallada.md` contains the extended record of experience, education, and conference participation. It should be reviewed with Gabriela; the `TODO(content)` comment remains as an internal reminder.
 
-Los datos entre las líneas `---` forman la ficha de cada contenido. El texto que sigue es el cuerpo de la página. Los comentarios `TODO(content)` señalan información que todavía debe confirmarse con Gabriela.
+The data between `---` delimiters is each entry's frontmatter. The following text is the page body. `TODO(content)` comments identify information that still needs confirmation with Gabriela.
 
-## Desarrollo
+## Development
 
 ```sh
 npm install
 npm run dev
 ```
 
-## Generar el sitio estático
+## Build the static site
 
 ```sh
 npm run build
 ```
 
-El resultado se genera en `dist/`.
+The generated site is written to `dist/`.
 
-## Volver a extraer publicaciones de la copia de WordPress
+## Re-extract WordPress posts
 
-La base SQL no forma parte del sitio ni se publica. Si fuera necesario repetir la extracción:
+The SQL database is neither part of the website nor published. To repeat the extraction:
 
 ```sh
 node scripts/extract-wordpress.mjs sql/motionme_gabi.sql --write
 ```
 
-El script sólo toma publicaciones públicas, elimina teléfonos, correos, formularios, scripts e imágenes incrustadas, y escribe archivos Markdown en `src/content/articles/`.
+The script reads only public posts, removes phone numbers, email addresses, forms, scripts, and embedded images, and writes Markdown files to `src/content/articles/`.
 
-Las páginas HTML conservadas en `archived_site/` se migraron mediante `scripts/migrate-legacy-pages.mjs`. La carpeta es un archivo local e intencionalmente no se versiona. El script extrae el contenido sustantivo, descarta navegación y datos de contacto, y genera los artículos Markdown correspondientes.
+The HTML pages preserved in `archived_site/` were migrated with `scripts/migrate-legacy-pages.mjs`. This is a local archive and is intentionally not tracked. The script extracts substantive content, removes navigation and contact details, and generates the corresponding Markdown articles.
 
-## Publicación en GitHub Pages
+## GitHub Pages deployment
 
-El workflow `.github/workflows/deploy.yml` construye y publica el sitio cuando los cambios llegan a `main`. Antes del primer despliegue, en GitHub hay que seleccionar **Settings → Pages → Source: GitHub Actions** y configurar el dominio personalizado `gabrielafpanizza.com.ar` en esa misma pantalla. El archivo `public/CNAME` acompaña el dominio en el artefacto publicado, pero no reemplaza la configuración del DNS.
+The `.github/workflows/deploy.yml` workflow builds and deploys the site when changes reach `main`. Before the first deployment, select **Settings → Pages → Source: GitHub Actions** in GitHub and configure the `gabrielafpanizza.com.ar` custom domain on the same screen. The `public/CNAME` file is included in the published artifact, but it does not replace DNS configuration.

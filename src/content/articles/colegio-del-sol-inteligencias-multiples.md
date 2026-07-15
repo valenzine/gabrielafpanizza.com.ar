@@ -102,7 +102,7 @@ También los chicos que son más rápidos que el resto pueden seguir avanzando, 
 
 - Que es un desafío que vale la pena intentar.
 
-<!-- firma -->
+<!-- signature -->
 
 *Profesora Gabriela Fernández Panizza*  
 *Asesora pedagógica*  

@@ -18,4 +18,4 @@ En 2009 participó de Project Zero Classroom en Harvard. Su interés por las dis
 
 Después de jubilarse de la docencia formal en 2015, siguió escribiendo, asesorando proyectos educativos y creando espacios culturales. Entre 2018 y 2019 produjo y condujo *Las cosas de Mamá Osa* en Radio Nacional Bariloche.
 
-<!-- TODO(content): Confirmar con Gabriela su rol profesional actual antes de agregarlo. -->
+<!-- TODO(content): Confirm Gabriela's current professional role before adding it. -->

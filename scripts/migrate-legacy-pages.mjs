@@ -165,7 +165,7 @@ function formatLegacyMarkdown(item, markdown) {
 
   if (item.file === 'im.htm') {
     formatted = formatted
-      .replace(/^\s*Profesora\s+Gabriela Fernández Panizza\\?\s*\n\s*Asesora Pedagógica\\?\s*\n\s*San Carlos de Bariloche 2005\s*$/mi, '\n\n<!-- firma -->\n\n*Profesora Gabriela Fernández Panizza*  \n*Asesora pedagógica*  \n*San Carlos de Bariloche, 2005*')
+      .replace(/^\s*Profesora\s+Gabriela Fernández Panizza\\?\s*\n\s*Asesora Pedagógica\\?\s*\n\s*San Carlos de Bariloche 2005\s*$/mi, '\n\n<!-- signature -->\n\n*Profesora Gabriela Fernández Panizza*  \n*Asesora pedagógica*  \n*San Carlos de Bariloche, 2005*')
       .replace(/^Distintos modos de pensar,\\\s*\ndistintos modos de aprender\.\s*\n+/i, '')
       .replace(/^Prof\. Gabriela Fernández Panizza ©\s*\n+/i, '');
   }
@@ -193,7 +193,7 @@ function formatLegacyMarkdown(item, markdown) {
   return formatted
     .replace(/^\s*Los aspectos estudiados fueron:\s*$/mi, '## Aspectos estudiados')
     .replace(/^- \* \*Los docentes/m, '- Los docentes')
-    .replace(/^\s*Profesora\s+Gabriela Fernández Panizza\\?\s*Asesora Pedagógica\\?\s*San Carlos de Bariloche 2005\s*$/mi, '\n\n<!-- firma -->\n\n*Profesora Gabriela Fernández Panizza*  \n*Asesora pedagógica*  \n*San Carlos de Bariloche, 2005*')
+    .replace(/^\s*Profesora\s+Gabriela Fernández Panizza\\?\s*Asesora Pedagógica\\?\s*San Carlos de Bariloche 2005\s*$/mi, '\n\n<!-- signature -->\n\n*Profesora Gabriela Fernández Panizza*  \n*Asesora pedagógica*  \n*San Carlos de Bariloche, 2005*')
     .trim();
 }
 
@@ -221,5 +221,5 @@ const curriculumFields = {
   heading: 'Trayectoria detallada',
   lead: 'Una relación ampliada de su formación, trabajo docente, publicaciones y participación en proyectos educativos.',
 };
-writeFileSync('src/content/pages/trayectoria-detallada.md', `${frontmatter(curriculumFields)}\n<!-- TODO(content): Revisar y actualizar esta trayectoria con Gabriela. -->\n\n${curriculum}\n`);
+writeFileSync('src/content/pages/trayectoria-detallada.md', `${frontmatter(curriculumFields)}\n<!-- TODO(content): Review and update this career record with Gabriela. -->\n\n${curriculum}\n`);
 console.log('curriculum.htm -> src/content/pages/trayectoria-detallada.md');

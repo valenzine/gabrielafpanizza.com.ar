@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, getEntry, render } from 'astro:content';
 
 const page = await getEntry('pages', 'gabriela');
-if (!page) throw new Error('Falta src/content/pages/gabriela.md');
+if (!page) throw new Error('Missing src/content/pages/gabriela.md');
 const { Content } = await render(page);
 const timeline = await Promise.all(
   (await getCollection('timeline'))

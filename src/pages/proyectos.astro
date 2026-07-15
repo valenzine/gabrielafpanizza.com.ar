@@ -4,7 +4,7 @@ import Arrow from '../components/Arrow.astro';
 import { getCollection, getEntry, render } from 'astro:content';
 
 const page = await getEntry('pages', 'proyectos');
-if (!page) throw new Error('Falta src/content/pages/proyectos.md');
+if (!page) throw new Error('Missing src/content/pages/proyectos.md');
 const { Content } = await render(page);
 const projects = (await getCollection('articles'))
   .filter((entry) => entry.data.project)

@@ -1,8 +1,8 @@
-# Inventario de contenido conservado
+# Preserved content inventory
 
-Los archivos fuente indicados a continuación se conservan localmente en `archived_site/`; no forman parte del sitio publicado ni del repositorio nuevo.
+The source files listed below are preserved locally in `archived_site/`; they are neither published nor included in the new repository.
 
-## Incorporado como página o artículo
+## Included as a page or article
 
 - `mensaje.htm` → `/archivo/ensenar/`
 - `im.htm` → `/archivo/distintos-modos-de-pensar-distintos-modos-de-aprender/`
@@ -14,12 +14,12 @@ Los archivos fuente indicados a continuación se conservan localmente en `archiv
 - `meama.htm` → `/archivo/mi-mama-me-ama/`
 - `etica.htm` → `/archivo/formacion-etica-y-ciudadana/`
 - `curriculum.htm` → `/trayectoria/`
-- `libros.htm` → colección `src/content/books/`, ampliada con publicaciones posteriores.
+- `libros.htm` → `src/content/books/` collection, expanded with later publications.
 
-## Estructura sin contenido editorial propio
+## Structure without original editorial content
 
 - `index.html`: definición de marcos.
 - `indice.htm`: navegación.
 - `portada.htm`: portada y accesos a secciones.
 
-Estas tres páginas no requieren una ruta equivalente porque su función está cubierta por la navegación y la portada actuales.
+These three pages do not require an equivalent route because their role is covered by the current navigation and home page.

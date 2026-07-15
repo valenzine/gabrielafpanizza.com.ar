@@ -6,7 +6,7 @@ import { getCollection, getEntry, render } from 'astro:content';
 import { toBook } from '../lib/books';
 
 const home = await getEntry('pages', 'inicio');
-if (!home) throw new Error('Falta src/content/pages/inicio.md');
+if (!home) throw new Error('Missing src/content/pages/inicio.md');
 const { Content: HomeNote } = await render(home);
 const featuredBooks = (await getCollection('books'))
   .filter((entry) => entry.data.featured)

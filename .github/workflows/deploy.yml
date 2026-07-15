@@ -1,4 +1,4 @@
-name: Publicar en GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -18,18 +18,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Obtener el repositorio
+      - name: Check out repository
         uses: actions/checkout@v4
-      - name: Preparar Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - name: Instalar dependencias
+      - name: Install dependencies
         run: npm ci
-      - name: Construir el sitio
+      - name: Build site
         run: npm run build
-      - name: Subir el sitio estático
+      - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
@@ -41,6 +41,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Publicar
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

@@ -68,7 +68,7 @@ Ahora, si en cambio lo hacemos desde la perspectiva de las Inteligencias Múltip
 
 Cada una de estas inteligencias es una puerta por la cual ingresan los conocimientos. Cada una de ellas es como una ventana por la que cada uno observa la misma realidad por medio de códigos diferentes. El hecho de conocerlas y poder identificarlas nos puede ayudar a entender mejor a  nuestros alumnos y a ofrecerles un ámbito de desarrollo de sus potencialidades y talentos.
 
-<!-- firma -->
+<!-- signature -->
 
 *Profesora Gabriela Fernández Panizza*  
 *Asesora pedagógica*  
